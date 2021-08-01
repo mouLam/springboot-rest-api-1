@@ -30,6 +30,8 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     private static final String SQL_UPDATE = "UPDATE ET_TRANSACTIONS SET AMOUNT = ?, NOTE = ?, TRANSACTION_DATE = ? " +
             "WHERE USER_ID = ? AND CATEGORY_ID = ? AND TRANSACTION_ID = ?";
 
+    private static final String SQL_DELETE = "DELETE FROM ET_TRANSACTIONS WHERE USER_ID = ? AND CATEGORY_ID = ? AND TRANSACTION_ID = ?";
+
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
@@ -86,7 +88,9 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 
     @Override
     public void remove(Integer userId, Integer categoryId, Integer transactionId) throws EtResourceNotFoundException {
-
+        int count = jdbcTemplate.update(SQL_DELETE, new Object[]{userId, categoryId, transactionId});
+        if (count == 0)
+            throw new EtResourceNotFoundException("Transaction to delete not found");
     }
 
     private final RowMapper<Transaction> transactionRowMapper = ((resultSet, i) -> new Transaction(resultSet.getInt("TRANSACTION_ID"),
