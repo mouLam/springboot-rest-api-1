@@ -1,0 +1,420 @@
+{
+	"info": {
+		"_postman_id": "4e0fab3b-666c-47c0-87b6-e58853dbc456",
+		"name": "SpringBoot ExpensesTracker API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Mouhamadou Lamine\",\n    \"lastName\" : \"MBOUP\",\n    \"email\" : \"moulam@email.com\",\n    \"password\" : \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzYwNjcsImV4cCI6MTYyNzg0MzI2NywidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.znjvPpTRJWQUtbixNCn2etYvYYRQf2jhmopcakrH8QU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"moulam@email.com\",\n    \"password\" : \"1234\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add category",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzE2NDAsImV4cCI6MTYyNzgzODg0MCwidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.L3OlNkz_JK6CUws8Ca8xOc8AeaNlFLeTAtU8nvm_ofk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"Shopping 2\",\n    \"description\" : \"all of my shopping expenses\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzcyMzUsImV4cCI6MTYyNzg0NDQzNSwidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.4_L6mLbFvpIbRKNlPRTaVmCp_PsLELbUowQm6uOVQDM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\" : \"500\",\n    \"note\" : \"Friday trans\",\n    \"transactionDate\" : 1547837000000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/categories/3/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories",
+						"3",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get one transaction of a category",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzcyMzUsImV4cCI6MTYyNzg0NDQzNSwidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.4_L6mLbFvpIbRKNlPRTaVmCp_PsLELbUowQm6uOVQDM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/categories/3/transactions/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories",
+						"3",
+						"transactions",
+						"1000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all transactions for a category",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzgxMjEsImV4cCI6MTYyNzg0NTMyMSwidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.00SKX7Li1od0RcVR25KAc5JkuopG4Jr3VGuNmpaxdjg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/categories/3/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories",
+						"3",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzcyMzUsImV4cCI6MTYyNzg0NDQzNSwidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.4_L6mLbFvpIbRKNlPRTaVmCp_PsLELbUowQm6uOVQDM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get one category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzAzMDcsImV4cCI6MTYyNzgzNzUwNywidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.yVHYiodgGJ_JLW6oQ8nJmR02WH9n6HbnwK3TR5pQM3w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/categories/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a category",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzE2NDAsImV4cCI6MTYyNzgzODg0MCwidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.L3OlNkz_JK6CUws8Ca8xOc8AeaNlFLeTAtU8nvm_ofk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"Shopping\",\n    \"description\" : \"This shopping is updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/categories/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update one transaction of a category",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzkwNjEsImV4cCI6MTYyNzg0NjI2MSwidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.9bD5hYM8zD1b9oOtewlW07jAwxYBsGslKKMUb_9yWpU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 250.0,\n    \"note\": \"My transaction is updated\",\n    \"transactionDate\": 1577817000000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/categories/3/transactions/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories",
+						"3",
+						"transactions",
+						"1000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a category",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzcyMzUsImV4cCI6MTYyNzg0NDQzNSwidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.4_L6mLbFvpIbRKNlPRTaVmCp_PsLELbUowQm6uOVQDM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/categories/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete one transaction of a category",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc4MzcyMzUsImV4cCI6MTYyNzg0NDQzNSwidXNlcklkIjo2LCJlbWFpbCI6Im1vdWxhbUBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNb3VoYW1hZG91IExhbWluZSIsImxhc3ROYW1lIjoiTUJPVVAifQ.4_L6mLbFvpIbRKNlPRTaVmCp_PsLELbUowQm6uOVQDM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/categories/3/transactions/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories",
+						"3",
+						"transactions",
+						"1000"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
