@@ -25,6 +25,11 @@ public class CategoryRepositoryImpl  implements CategoryRepository{
             "FROM ET_TRANSACTIONS T RIGHT OUTER JOIN ET_CATEGORIES C ON C.CATEGORY_ID = T.CATEGORY_ID " +
             "WHERE C.USER_ID = ? AND C.CATEGORY_ID = ? " +
             "GROUP BY C.CATEGORY_ID";
+    private static final String SQL_FIND_ALL = "SELECT C.CATEGORY_ID, C.USER_ID, C.TITLE, C.DESCRIPTION, " +
+            "COALESCE(SUM(T.AMOUNT), 0) TOTAL_EXPENSE " +
+            "FROM ET_TRANSACTIONS T RIGHT OUTER JOIN ET_CATEGORIES C ON C.CATEGORY_ID = T.CATEGORY_ID " +
+            "WHERE C.USER_ID = ? " +
+            "GROUP BY C.CATEGORY_ID";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -36,7 +41,7 @@ public class CategoryRepositoryImpl  implements CategoryRepository{
 
     @Override
     public List<Category> findAll(Integer userId) throws EtResourceNotFoundException {
-        return null;
+        return jdbcTemplate.query(SQL_FIND_ALL, new Object[]{userId}, categoryRowMapper);
     }
 
     @Override

@@ -24,12 +24,12 @@ public class CategoryServiceImpl  implements CategoryService{
 
     @Override
     public List<Category> findAllCategories(Integer userId) {
-        return null;
+        return categoryRepository.findAll(userId);
     }
 
     @Override
     public Category findCategoryById(Integer userId, Integer categoryId) throws EtResourceNotFoundException {
-        return null;
+        return categoryRepository.findById(userId, categoryId);
     }
 
     @Override
