@@ -30,6 +30,8 @@ public class CategoryRepositoryImpl  implements CategoryRepository{
             "FROM ET_TRANSACTIONS T RIGHT OUTER JOIN ET_CATEGORIES C ON C.CATEGORY_ID = T.CATEGORY_ID " +
             "WHERE C.USER_ID = ? " +
             "GROUP BY C.CATEGORY_ID";
+    private static final String SQL_UPDATE = "UPDATE ET_CATEGORIES SET TITLE = ?, DESCRIPTION = ? " +
+            "WHERE USER_ID = ? AND CATEGORY_ID = ?";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -73,7 +75,11 @@ public class CategoryRepositoryImpl  implements CategoryRepository{
 
     @Override
     public void update(Integer userId, Integer categoryId, Category category) throws EtBadRequestException {
-
+        try {
+            jdbcTemplate.update(SQL_UPDATE, new  Object[]{category.getTitle(), category.getDescription(), userId, categoryId});
+        }catch ( Exception e){
+            throw new EtBadRequestException("Invalid update request");
+        }
     }
 
     @Override
