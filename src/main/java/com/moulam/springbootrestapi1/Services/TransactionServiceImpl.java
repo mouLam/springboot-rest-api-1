@@ -23,12 +23,12 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public List<Transaction> findAllTransactions(Integer userId, Integer categoryId) {
-        return null;
+        return transactionRepository.findAll(userId, categoryId);
     }
 
     @Override
     public Transaction findTransactionById(Integer userId, Integer categoryId, Integer transactionId) throws EtResourceNotFoundException {
-        return null;
+        return transactionRepository.findById(userId, categoryId, transactionId);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public void updateTransaction(Integer userId, Integer categoryId, Integer transactionId, Transaction transaction) throws EtBadRequestException {
-
+        transactionRepository.update(userId, categoryId, transactionId, transaction);
     }
 
     @Override
